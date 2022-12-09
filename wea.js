@@ -9,6 +9,71 @@ $("#menu").click(function(event) {
 $("#content").click(function(event) {
     $(".mywth").removeClass('hidden');
 });
+
+//你的申请的apikey 
+var key="f94b6b17a0c845ed83165ad557ae4a84";
+var jsonCity,loca,cinfo,cid,wea,wae3d;
+
+//获取客户端经纬度
+$.ajax({
+    method: 'GET',
+    url: 'http://ip-api.com/json/',
+    dataType: 'json',
+    success: function (response) {// 处理响应内容
+        jsonCity = JSON.parse(response);//解码json
+
+        //经纬度精确到两位小数并拼接
+        var lat = jsonCity.lat.toFixed(2);
+        var lon = jsonCity.lon.toFixed(2);
+        loca = lon + "," + lat;
+    },
+    error: function (error) {
+        // 处理错误
+
+    }
+  });
+
+//根据经纬度获取城市ID信息
+$.ajax({
+    method: 'GET',
+    url: 'https://geoapi.qweather.com/v2/city/lookup?location='+loca+"&key="+ key,
+    dataType: 'json',
+    success: function (response) {
+      // 处理响应内容
+      cinfo = JSON.parse(response);//解码Json
+      cid = cinfo.location[0].id;
+    },
+    error: function (error) {
+      // 处理错误
+    }
+  });
+
+//获取实时天气
+$.ajax({
+    method: 'GET',
+    url: 'https://devapi.qweather.com/v7/weather/now?location='+ cid +'&key=' + key,
+    dataType: 'json',
+    success: function (response) {
+      // 处理响应内容
+      wea = JSON.parse(response);//解码Json
+    },
+    error: function (error) {
+      // 处理错误
+    }
+  });
+//获取三日天气
+$.ajax({
+    method: 'GET',
+    url: 'https://devapi.qweather.com/v7/weather/3d?location='+ cid +'&key=' + key,
+    dataType: 'json',
+    success: function (response) {
+      // 处理响应内容
+      wea3d = JSON.parse(response);//解码Json
+    },
+    error: function (error) {
+      // 处理错误
+    }
+  });
 var res;
 $.ajax({
     url: '/wea/index.php',
