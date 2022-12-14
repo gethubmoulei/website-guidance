@@ -8,7 +8,7 @@ github：https://github.com/5iux/sou
 */
 
 body{
-    font-size:100%
+    font-size:100%;
 }
 
 .mywth {
@@ -17,7 +17,7 @@ body{
     left: 20px;
     top: 15px;
     font-size: 1em;
-    mix-blend-mode: difference;
+    /* mix-blend-mode: difference; */
     color: white;
     height: 20px;
     line-height: 20px;

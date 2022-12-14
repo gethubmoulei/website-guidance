@@ -27,6 +27,7 @@ if (empty($q)) {
   <meta name="msapplication-TileImage" content="icon/280.png?v=1.0.1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qweather-icons@1.1.1/font/qweather-icons.css">
   <link rel="shortcut icon" href="icon/32.png?v=1.0.1"/>
+
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -34,7 +35,8 @@ if (empty($q)) {
   <meta name="browsermode" content="application"><!--UC应用模式-->
   <meta name="x5-fullscreen" content="true"><!--QQ强制全屏-->
   <meta name="x5-page-mode" content="app"><!--QQ应用模式-->
-  <title>简单搜索</title>
+
+  <title>简单导航</title>
   <link href="style.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
   <link href="wea.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
@@ -55,11 +57,12 @@ if (empty($q)) {
         success: function(res) {
             //var bgimg;
             var x=Math.floor(Math.random()*9);
-            $("body").append('<style> body{background:url("https://cn.bing.com'+res.images[x].url+'") no-repeat center/cover;}</style>');
+            $("body").append("<style> body{background: url('https://cn.bing.com"+res.images[x].url+"')no-repeat center/cover; }</style>");
         }
     });
     /*随机bing背景end*/
     </script> 
+    <span data-mscc-ic="false" id="backgroundImageOverlay" class="overlayGradient overlay"></span> <!-- 背景渐变覆盖层，data-mscc-ic="false"表示该元素不是重要元素 -->
     <div id="menu"><i></i></div>
     <div class="list closed">
         <ul>
@@ -175,32 +178,31 @@ if (empty($q)) {
             <div class="shlogo" style="background: url(icon/mylogo80x80.png) no-repeat center;"></div>
             <div class="sou">
                 <form action="" method="post" target="_self">
-                <div class="lg" style="background: url(icon/bing.svg) no-repeat center/cover;" onclick="window.location.href=\\'?t=b\\';"></div>
                    <?php 
                    if ($t=="b"){
                      echo'<div class="lg" style="background: url(icon/baidu.svg) no-repeat center/cover;" onclick="window.location.href=\'?t=g\';"></div>';
-                   }elseif($t=="g"){
+                   }else if($t=="g"){
                      echo'<div class="lg" style="background: url(icon/g.svg) no-repeat center/cover;" onclick="window.location.href=\'?t=\';"></div>';
                    }else{
-                    //上面知道把默认谷歌改成百度，这里不知道改吗大佬们？。。
                      echo'<div class="lg" style="background: url(icon/bing.svg) no-repeat center/cover;" onclick="window.location.href=\'?t=b\';"></div>';
                    }
-
                    ?>
-                    <!--input class="t" type="text" value="" name="t" hidden-->
                     <input class="wd" type="text" placeholder="请输入搜索内容" name="q" autocomplete="off">
                     <button><svg class="icon" style=" width: 21px; height: 21px; opacity: 0.5;" aria-hidden="true"><use xlink:href="#icon-sousuo"></use></svg></button>
                 </form>
                 <div id="word"></div>
             </div>
         </div>
-        <!--div class="foot" style="height: 40px;">
-          <a href="https://blog.5iux.cn/" style="color: #777;">博客</a> | 
-          <a href="https://hao.5iux.cn/" style="color: #777;">设计导航</a> | 
-          <a href="https://dyartstyle.com/" style="color: #777;">设计资讯</a> | 
-          <a href="https://wat.dyartstyle.com/" style="color: #777;">吾爱淘</a> | 
-          <a href="https://github.com/5iux/sou/" style="color: #777;">Github</a><br>
-          © 2016-<?php echo date("Y") ?> by <a href="https://blog.5iux.cn/">5iux</a> . All rights reserved.</div-->
+        <div class="foot" style="height: 40px;">
+          <a href="https://github.com/5iux/sou/" style="color: #888;">Github</a><br>
+          © 2016-<?php echo date("Y") ?> by <a href="https://blog.5iux.cn/" style="color: #888;">5iux</a> . All rights reserved.</div>
     </div>
+<!--
+作者:D.Young
+主页：https://blog.5iux.cn/
+github：https://github.com/5iux/sou
+日期：2020-11-23
+版权所有，请勿删除
+-->
 </body>
 </html>
