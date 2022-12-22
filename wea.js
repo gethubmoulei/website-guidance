@@ -12,7 +12,7 @@ $("#content").click(function(event) {
 
 
 //获取客户端经纬度
-navigator.geolocation.getCurrentPosition(function(loc){
+navigator.geolocation.getCurrentPosition(function (loc) {
   var lat = parseFloat(loc.coords.latitude).toFixed(2);
   var lon = parseFloat(loc.coords.longitude).toFixed(2);
   var loca = lon + "," + lat;
@@ -45,10 +45,10 @@ navigator.geolocation.getCurrentPosition(function(loc){
       var reobstime = objobstime.replace(regex, '');
       var obstime = reobstime.replace('T', ' ');
       $('.wea_top').append("<span class='city'><b>" + wea.city + "</b> " + obstime.toString() + " 观测</span>\
-                        <span class='qi-" + wea.now.icon + "' style= 'no-repeat center/contain;font-size:4em;margin-top: 0.2em;'></span>\
-                        <span class='tem'><b>" + wea.now.temp + "℃</b>" + wea.now.text + "</span>\
-                        <span class='air'>相对湿度：" + wea.now.humidity + "%<br>" + wea.now.windDir + "：" + wea.now.windScale + "级</span>\
-                        <span class='air_tips'>" + "" + "</span>");
+                          <span class='qi-" + wea.now.icon + "' style= 'no-repeat center/contain;font-size:4em;margin-top: 0.2em;'></span>\
+                          <span class='tem'><b>" + wea.now.temp + "℃</b>" + wea.now.text + "</span>\
+                          <span class='air'>相对湿度：" + wea.now.humidity + "%<br>" + wea.now.windDir + "：" + wea.now.windScale + "级</span>\
+                          <span class='air_tips'>" + "" + "</span>");
 
       //未来3天天气
       var wea_foot;
@@ -56,7 +56,7 @@ navigator.geolocation.getCurrentPosition(function(loc){
         wea_foot = '<li>' + wea.wea3d.daily[i].fxDate + "<br><i class='qi-" + wea.wea3d.daily[i].iconDay + "' style='font-size:2em'></i><br><b>" + wea.wea3d.daily[i].textDay + '</b><br><i>' + wea.wea3d.daily[i].tempMin + '°/' + wea.wea3d.daily[i].tempMax + '°' + '</i></li>';
         $(".wea_foot ul").append(wea_foot);
       }
-    } 
+    }
     else {
       // 当响应失败时，显示错误信息
       console.error("天气插件错误");

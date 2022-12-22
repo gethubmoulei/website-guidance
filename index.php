@@ -47,13 +47,13 @@ if (empty($q)) {
   <meta name="x5-page-mode" content="app"><!--QQ应用模式-->
 
   <title>简单导航</title>
-  <link href="style.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
-  <link href="wea.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
   <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> -->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
   <script src="//at.alicdn.com/t/font_400990_j21lstb4wx.js"></script>
-  <script src="sou.js?t=<?php echo date("ymdhi"); ?>"></script>
-  <script src="wea.js?t=<?php echo date("ymdhi"); ?>"></script>
+  <link href="style.css?t=<?php echo date("ymdh"); ?>" rel="stylesheet">
+  <link href="wea.css?t=<?php echo date("ymdh"); ?>" rel="stylesheet">
+  <script src="sou.js?t=<?php echo date("ymdh"); ?>"></script>
+  <script src="wea.js?t=<?php echo date("ymdh"); ?>"></script>
 </head>
 
 <body>
