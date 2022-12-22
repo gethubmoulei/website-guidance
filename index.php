@@ -1,4 +1,7 @@
 <?php
+
+//防跨域调用
+header('Access-Control-Allow-Headers:http://www.yixuewei.com');
 //禁用错误报告
 error_reporting(0);
 $t=htmlspecialchars($_GET["t"]);
@@ -22,6 +25,13 @@ if (empty($q)) {
   <meta http-equiv="Cache-Control" content="no-siteapp">
   <meta name="referrer" content="no-referrer" />
   <meta name="theme-color" content="#ffffff">
+  <script type="text/javascript">
+    var url = window.location.href;
+    if (url.indexOf("https") < 0) {
+      url = url.replace("http:", "https:");
+      window.location.replace(url);
+    }
+  </script>
   <link rel="icon" href="icon/280.png?v=1.0.1" sizes="280x280" />
   <link rel="apple-touch-icon-precomposed" href="icon/280.png?v=1.0.1" />
   <meta name="msapplication-TileImage" content="icon/280.png?v=1.0.1" />
@@ -39,29 +49,14 @@ if (empty($q)) {
   <title>简单导航</title>
   <link href="style.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
   <link href="wea.css?t=<?php echo date("ymdhi"); ?>" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script src="//at.alicdn.com/t/font_400990_j21lstb4wx.js"></script>
   <script src="sou.js?t=<?php echo date("ymdhi"); ?>"></script>
   <script src="wea.js?t=<?php echo date("ymdhi"); ?>"></script>
 </head>
 
 <body>
-    <script>
-    /*随机bing背景start,如无需求可注释掉*/
-    $.ajax({
-        url: './bg/',
-        dataType: 'json',
-        error: function() {
-            console.log('网络错误！');
-        },
-        success: function(res) {
-            //var bgimg;
-            var x=Math.floor(Math.random()*9);
-            $("body").append("<style> body{background: url('https://cn.bing.com"+res.images[x].url+"')no-repeat center/cover; }</style>");
-        }
-    });
-    /*随机bing背景end*/
-    </script> 
     <span data-mscc-ic="false" id="backgroundImageOverlay" class="overlayGradient overlay"></span> <!-- 背景渐变覆盖层，data-mscc-ic="false"表示该元素不是重要元素 -->
     <div id="menu"><i></i></div>
     <div class="list closed">
@@ -158,7 +153,7 @@ if (empty($q)) {
         </ul>
     </div>
 <!--天气-->
-    <div class="mywth">
+    <div class="mywth" onclick="weaclick()">
         <div class="wea_hover" onclick="weaclick()">
             <div class="wea_in wea_top"></div>
             <div class="wea_in wea_con">

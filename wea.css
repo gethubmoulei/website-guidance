@@ -7,9 +7,6 @@ github：https://github.com/5iux/sou
 版权所有，请勿删除
 */
 
-body{
-    font-size:100%;
-}
 
 .mywth {
     border-radius: 5px;
@@ -215,7 +212,7 @@ body{
 @media (max-width: 640px) {
 
     .mywth {
-        color: #777;
+        color: #f1f1f1;
         left: 10px;
         top: 20px;
     }

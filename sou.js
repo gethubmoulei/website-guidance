@@ -26,13 +26,6 @@ $(document).ready(function() {
         $(".mywth").removeClass('hidden');
         $('#word').hide();
     });
-    $(".mywth").click(function(event) {
-        var wt = $("body").width();
-        if (wt < 750 || wt == 750) {
-            //window.location.href = "https://tianqi.qq.com/";
-            window.location.href = "/weather/";
-        }
-    });
 });
 
 //关键词sug
