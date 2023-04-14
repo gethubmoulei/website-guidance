@@ -1,5 +1,6 @@
 <?php
 
+
 //防跨域调用
 header('Access-Control-Allow-Headers:http://www.yixuewei.com');
 //禁用错误报告
@@ -15,6 +16,7 @@ if (empty($q)) {
   }else{//默认必应
     echo'<script>window.location.href="https://www.bing.com/search?q='.$q.'";</script>';
   }
+
 };
 ?>
 <!DOCTYPE html>
